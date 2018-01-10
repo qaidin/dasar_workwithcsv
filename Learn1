@@ -1,0 +1,125 @@
+import matplotlib.pyplot as plt
+import csv
+f = open("E:\PYTHON FILE\data.csv","r")
+csvreader = csv.reader(f)
+data = list(csvreader)
+
+def semuakelaslulus(index):
+    a = 0
+    for row in data :
+        if row[1] == index:
+            if row[3] == "L":
+                a += 1
+    return  a
+
+def semuakelastidaklulus(index):
+    a = 0
+    for row in data :
+        if row[1] == index:
+            if row[3] == "T":
+                a += 1
+    return a
+
+kelas_1 = semuakelaslulus("1")
+kelas_2 = semuakelaslulus("2")
+kelas_3 = semuakelaslulus("3")
+jumlahlulus = kelas_1 + kelas_2 + kelas_3
+
+kelas1 = semuakelastidaklulus("1")
+kelas2 = semuakelastidaklulus("2")
+kelas3 = semuakelastidaklulus("3")
+jumlahtidaklulus = kelas1 + kelas2 + kelas3
+
+
+def menu():
+    print("------------DATA NILAI SISWA-------------","\n")
+    print("1. Siswa yang TIDAK lulus")
+    print("2. Siswa yang lulus")
+    a = int(input("Masukkan Pilihan Menu : ", ))
+    if a == 1:
+        submenu()
+    elif a == 2:
+        submenu1()
+
+def submenu():
+    print("1. Siswa yang TIDAK lulus kelas 1")
+    print("2. Siswa yang TIDAK lulus kelas 2")
+    print("3. Siswa yang TIDAK lulus kelas 3")
+    print("4. jumlah siswa yang Tidak lulus")
+
+    b = int(input("Masukkan Pilihan Menu : ",))
+    if b == 1:
+        print(kelas1, "siswa kelas 1 TIDAK lulus", "\n")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu()
+        else:
+            return menu()
+    elif b == 2:
+        print(kelas2, "siswa kelas 2 TIDAK lulus", "\n")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu()
+        else:
+            return menu()
+    elif b == 3:
+        print(kelas3, "siswa kelas 3 TIDAK lulus", "\n")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu()
+        else:
+            return menu()
+    elif b == 4:
+        print(jumlahtidaklulus, "siswa kelas 1, 2, dan 3 TIDAK lulus")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu()
+        else:
+            return menu()
+
+def submenu1():
+    print("1. Siswa yang lulus kelas 1",)
+    print("2. Siswa yang lulus kelas 2",)
+    print("3. Siswa yang lulus kelas 3")
+    print("4. Jumlah siswa yang LULUS")
+    inn = int(input("Masukkan Pilihan Menu : "))
+    if inn == 1:
+        print(kelas_1, " siswa kelas 1 lulus","\n")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu1()
+        else:
+            return menu()
+    elif inn == 2:
+        print(kelas_2, "siswa kelas 2 lulus","\n")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu1()
+        else:
+            return menu()
+    elif inn == 3:
+        print(kelas_3, "siswa kelas 3 lulus","\n")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu1()
+        else:
+            return menu()
+    elif inn == 4 :
+        print(jumlahlulus, "siswa kelas 1, 2, dan 3 yang LULUS")
+        c = input("kembali ke menu sebelumnya ?")
+        if c == 'y':
+            return submenu1()
+
+menu()
+
+
+
+
+
+
+
+
+
+
+
+
